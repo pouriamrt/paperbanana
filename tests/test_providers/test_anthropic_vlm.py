@@ -91,4 +91,3 @@ async def test_generate_with_images_and_json(monkeypatch: pytest.MonkeyPatch) ->
     assert content[-1]["type"] == "text"
     assert content[-1]["text"] == "Hi with image"
     assert captured["response_format"] == {"type": "json_object"}
-

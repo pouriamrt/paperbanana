@@ -128,4 +128,3 @@ class AnthropicVLM(VLMProvider):
             usage=getattr(response, "usage", None),
         )
         return text
-
