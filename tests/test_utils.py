@@ -385,9 +385,7 @@ class TestMcpContinueRun:
         assert data["new_iteration_count"] == 0
 
     @pytest.mark.asyncio
-    async def test_continue_run_unified_tool_returns_image(
-        self, tmp_path: Path, monkeypatch
-    ):
+    async def test_continue_run_unified_tool_returns_image(self, tmp_path: Path, monkeypatch):
         """continue_run accepts any resumable run and returns an Image (not JSON)."""
         import mcp_server.server as mcp_server_mod
         from mcp_server.server import continue_run as continue_run_mcp
@@ -414,9 +412,7 @@ class TestMcpContinueRun:
                 captured["additional_iterations"] = additional_iterations
                 final = tmp_path / "continue_run_out.png"
                 _write_png(final)
-                return GenerationOutput(
-                    image_path=str(final), description="done", iterations=[]
-                )
+                return GenerationOutput(image_path=str(final), description="done", iterations=[])
 
         monkeypatch.setattr(mcp_server_mod, "PaperBananaPipeline", _FakePipeline)
 
